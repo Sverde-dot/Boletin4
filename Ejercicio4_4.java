@@ -1,48 +1,58 @@
-package boletin4;
+package Ejercicio4_4;
 
 public class Ejercicio4_4 {
-
-    private String cliente;
-    private String cuenta;
-    private double interes;
-    private double saldo;
-
-    public Ejercicio4_4() {
-    }
-    public String setClientes(){
-        
-    }
-    public String setCuenta(){
-        
-    }
-    public double setInteres(){
-        return interes
-    }
-    public double setSaldo(){
-        return saldo
-    }
+    String nomeCliente = "";
+    String numeroConta = "";
+    double interese = 0;
+    double saldo = 0;
+//  Constructores
+    public Ejercicio4_4(){
     
-    
-    
-    public String getCliente(){
-        return cliente;
     }
-    public String getCuenta(){
-        return cuenta;
+    public Ejercicio4_4(String nomeCliente, String numeroConta, double interese, double saldo){
+        this.nomeCliente = nomeCliente;
+        this.numeroConta = numeroConta;
+        this.interese = interese;
+        this.saldo = saldo;
     }
-    public double getInteres(){
-        return interes;
+//  Setters
+    public void setNome(String nomeCliente){
+        this.nomeCliente = nomeCliente;
     }
-    public double getSaldo(double saldo){
+    public void setConta(String numeroConta){
+        this.numeroConta = numeroConta;
+    }
+    public void setInterese(double interese){
+        this.interese = interese;
+    }
+    public void setSaldo(double saldo){
+        this.saldo = saldo;
+    }
+// Getters
+    public String getNome(){
+        return nomeCliente;
+    }
+    public String getConta(){
+        return numeroConta;
+    }
+    public double getInterese(){
+        return interese;
+    }
+    public double getSaldo(){
         return saldo;
     }
-
-
-    public void ingresos(double cantidad){
+//  Ingreso
+    public void ingreso(double cantidad){
         saldo += cantidad;
     }
-    
+//  Reintegro
     public void reintegro(double cantidad){
-        saldo -= Math.acos(cantidad);
+        saldo -= Math.abs(cantidad);
     }
-    //public void transferircuent
+//  Transferencia  
+   public void transferencia(Ejercicio4_4 destino, double cantidad){
+       saldo -= Math.abs(cantidad);
+       destino.setSaldo(destino.getSaldo() - cantidad);
+   }
+}
+
